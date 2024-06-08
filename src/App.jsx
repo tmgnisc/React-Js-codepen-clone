@@ -1,7 +1,29 @@
 import './App.css'
 import Navbar from './components/Navbar'
+import Result from './components/Result'
+import React, {useState, useEffect} from 'react'
+import {Javascript} from '@codemirror/lang-javascript'
+import {html} from '@codemirror/lang-html'
+import {css } from '@codemirror/lang-css'
+import { useCallback } from 'react'
+import CodeMirror from '@uiw/react-codemirror'
+
 
 function App() {
+  const [html_edit, setHtml_Edit] = useState('')
+  const [css_edit, setCss_Edit]= useState('')
+  const [js_edit, setJs_Edit] = useState('')
+  const onChangeHtml = useCallback((value)=> {
+    setHtml_Edit(value);
+  }, [])
+
+  const onChangeCss = useCallback((value) => {
+    setCss_Edit(value);
+  }, [])
+
+  const onChangeJavaScript = useCallback((value) => {
+    setJs_Edit(value);
+  }, [])
   return (
   <div>
       <Navbar/>
